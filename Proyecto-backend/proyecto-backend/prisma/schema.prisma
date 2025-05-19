@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  password    String
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  role        String
+  lastLogin   DateTime @default(now())
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  date        DateTime
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  location    String
+  category    String
+  capacity    String
+}
+
+model Speaker {
+  id          String   @id @default(uuid())
+  name        String
+  biography   String
+  email       String   @unique
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  topic       String
+  phone       String
+  affiliation String
+}
+
+model Conference {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  startDate   DateTime
+  endDate     DateTime
+  location    String
+  category    String
+}
+
+model Registration {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  institution String
+  eventId     String 
+  role        String
+}
+
+model Sponsor {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  industry    String
+  contact     String
+  phone       String
+}
+
+model Location {
+  id          String   @id @default(uuid())
+  name        String
+  address     String
+  city        String
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  capacity    String
+  room        String
+}
+
+model Feedback {
+  id          String   @id @default(uuid())
+  rating      String
+  comment     String
+  userEmail   String
+  createdAt   DateTime @default(now())
+  active      Boolean  @default(true)
+  eventId     String
+  phone       String
+}
