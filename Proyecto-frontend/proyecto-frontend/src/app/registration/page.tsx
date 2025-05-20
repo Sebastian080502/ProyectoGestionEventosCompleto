@@ -1,8 +1,5 @@
-export default function PageEvento() {
-  return (
-    <section>
-      <h2 className="text-3xl font-bold mb-4">Evento</h2>
-      <p>Evento</p>
-    </section>
-  );
+import RegistrationForm from "@/modules/registration/registrationForm";
+
+export default function RegisterPage() {
+  return <RegistrationForm />;
 }

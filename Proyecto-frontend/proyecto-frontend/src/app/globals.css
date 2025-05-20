@@ -10,3 +10,6 @@
     -ms-overflow-style: none;  /* IE y Edge */
     scrollbar-width: none;  /* Firefox */
 }
+:root {
+  --background-main: linear-gradient(120deg, #232946 0%, #393e60 100%);
+}

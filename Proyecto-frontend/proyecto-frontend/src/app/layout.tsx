@@ -26,10 +26,14 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.className} antialiased`}
+        style={{
+          background: "var(--background-main)",
+          minHeight: "100vh",
+        }}
       >
         <div className="flex min-h-screen">
           <Aside />
-          <main className="flex-1 p-6 bg-white">{children}</main>
+          <main className="flex-1 p-6 accent-gray-700 ">{children}</main>
         </div>
       </body>
     </html>

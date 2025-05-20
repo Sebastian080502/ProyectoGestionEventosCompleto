@@ -25,7 +25,7 @@ export class ConferenceController  {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.conferenceService.remove(id);
+  async remove(@Param('id') id: string) {
+    return await this.conferenceService.remove(id);
   }
 }

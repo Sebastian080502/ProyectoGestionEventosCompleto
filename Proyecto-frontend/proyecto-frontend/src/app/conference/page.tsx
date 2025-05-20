@@ -3,13 +3,15 @@
 import ConferenceForm from "@/modules/conference/ConferenceForm";
 import ConferenceList from "@/modules/conference/ConferenceList";
 import { montserrat} from "@/app/fonts";
+import Layaout from "@/modules/layouts/Layouts";
 
 export default function ConferencePage() {
   return (
-    <section>
-      <h2 className={`${montserrat.className }text-red-700 text-3xl font-bold`}>Conferencias</h2>
+    <Layaout title={<span className={montserrat.className}>Conferencias</span>}>
+    
       <ConferenceForm />
       <ConferenceList />
-    </section>
+   
+    </Layaout>
   );
 }

@@ -7,6 +7,8 @@ export class CreateRegistrationDto {
     @IsEmail()
     email: string;
     @IsString()
+    password: string;
+    @IsString()
     phone: string;
     @IsString()
     institution: string;
@@ -14,5 +16,6 @@ export class CreateRegistrationDto {
     role:string;
     @IsString()
     eventId: string;
+ 
     
 }

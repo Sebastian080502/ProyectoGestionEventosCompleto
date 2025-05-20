@@ -1,9 +1,10 @@
+import { UserProvider } from "@/stores/useUserStore";
+import UserLogin from "@/modules/user/userLogin";
 
-export default function PageEvento() {
+export default function PageUser() {
   return (
-    <section>
-      <h2 className="text-3xl font-bold mb-4">Evento</h2>
-      <p>Evento</p>
-    </section>
+    <UserProvider>
+      <UserLogin />
+    </UserProvider>
   );
 }

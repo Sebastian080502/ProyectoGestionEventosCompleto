@@ -16,6 +16,7 @@ model User {
   active      Boolean  @default(true)
   role        String
   lastLogin   DateTime @default(now())
+  registrations Registration[]
 }
 
 model Event {
@@ -64,6 +65,8 @@ model Registration {
   institution String
   eventId     String 
   role        String
+  userId     String
+  user        User     @relation(fields: [userId], references: [id])
 }
 
 model Sponsor {

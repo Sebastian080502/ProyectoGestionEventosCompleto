@@ -1,16 +1,27 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
+
+
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
+
+ @Post('login')
+async login(@Body() loginUserDto: LoginUserDto) {
+  console.log(loginUserDto);
+  const user = await this.userService.login(loginUserDto.email, loginUserDto.password);
+  return {
+    success: true,
+    message: 'Inicio de sesión exitoso',
+    user,
+  };
+}
+
 
   @Get()
   findAll() {
@@ -25,7 +36,7 @@ export class UserController {
  
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(id);
+  async remove(@Param('id') id: string) {
+    return await this.userService.remove(id);
   }
 }
